@@ -12,6 +12,8 @@ source:
     - missing-links.patch
 
 build:
+  error_overdepending: true
+  error_overlinking: true
   ignore_run_exports:
     # configure asks for it, but it is never actually used
     - lalmetaio
