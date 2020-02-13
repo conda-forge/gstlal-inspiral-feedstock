@@ -15,6 +15,8 @@ build:
   error_overdepending: true
   error_overlinking: true
   ignore_run_exports:
+    # not linked, but needed at runtime
+    - gst-plugins-base
     # configure asks for it, but it is never actually used
     - lalmetaio
   number: 0
