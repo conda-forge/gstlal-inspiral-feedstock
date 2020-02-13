@@ -30,7 +30,6 @@ requirements:
     - gobject-introspection >=1.30.0
     - gsl
     - gstreamer
-    - gst-plugins-base
     - gstlal >=1.6.0
     - lal >=6.19.0
     - lalinspiral >=1.8.0
