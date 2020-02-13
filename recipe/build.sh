@@ -16,9 +16,12 @@ export LAL_LIBS="-L${PREFIX}/lib -llal -llalinspiral"
 # configure
 ${SRC_DIR}/configure \
   --disable-massmodel \
+  --enable-introspection=yes \
+  --enable-gtk-doc=no \
+  --enable-gtk-doc-html=no \
+  --enable-gtk-doc-pdf=no \
   --prefix=${PREFIX} \
   --without-doxygen \
-  --with-html-dir=$(pwd)/html \
 ;
 
 # build

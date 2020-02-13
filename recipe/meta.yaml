@@ -15,7 +15,7 @@ build:
   ignore_run_exports:
     # configure asks for it, but it is never actually used
     - lalmetaio
-  number: 1
+  number: 0
   skip: true  # [win or py>=30]
 
 requirements:
@@ -29,27 +29,27 @@ requirements:
     - gsl
     - gstreamer
     - gst-plugins-base
-    - gstlal >=1.5.0
+    - gstlal >=1.6.0
     - lal >=6.19.0
     - lalinspiral >=1.8.0
     - lalmetaio >=1.4.0
-    - numpy 1.14
+    - numpy
     - python
   run:
     - glib
-    - gobject-introspection
+    - gobject-introspection >=1.30.0
     - gsl
     - gstreamer
     - gst-plugins-base
-    - gstlal >=1.5.0
-    - gstlal-ugly >=1.6.5
+    - gstlal >=1.6.0
+    - gstlal-ugly >=1.7.0
     - h5py
     - lal >=6.19.2
     - lalinspiral >=1.8.0
     - lalapps
     - ligo-gracedb >=1.11
     - ligo-segments >=1.2.0
-    - ligo-scald >=0.7.1
+    - ligo-scald >=0.7.2
     - lscsoft-glue >=2.0.0
     - {{ pin_compatible('numpy') }}
     - python
