@@ -15,7 +15,7 @@ build:
   ignore_run_exports:
     # configure asks for it, but it is never actually used
     - lalmetaio
-  number: 0
+  number: 1
   skip: true  # [win or py>=30]
 
 requirements:
