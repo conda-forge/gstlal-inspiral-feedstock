@@ -1,13 +1,13 @@
 {% set name = "gstlal-inspiral" %}
-{% set version = "1.7.1" %}
+{% set version = "1.7.2" %}
 
 package:
-  name: "{{ name|lower }}"
-  version: "{{ version }}"
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
-  url: "http://software.ligo.org/lscsoft/source/{{ name }}-{{ version }}.tar.gz"
-  sha256: d32c81c473692b57ebe75b37abe5c7e089b07b4f3bf219b2e3cc25750da5a684
+  url: http://software.ligo.org/lscsoft/source/{{ name }}-{{ version }}.tar.gz
+  sha256: db4992d9e1b487ee29e31a103b08040e3b8224b8a7e8d51b36d79cd3da345a78
   patches:
     - missing-links.patch
 
@@ -79,13 +79,13 @@ test:
     - gstlal_svd_bank --help
 
 about:
-  home: "https://lscsoft.docs.ligo.org/gstlal/"
-  dev_url: "https://git.ligo.org/lscsoft/gstlal/"
-  doc_url: "https://lscsoft.docs.ligo.org/gstlal/"
-  license: "GPL-2.0-or-later"
-  license_family: "GPL"
-  license_file: "COPYING"
-  summary: "GStreamer for GW data analysis (inspiral parts)"
+  home: https://lscsoft.docs.ligo.org/gstlal/
+  dev_url: https://git.ligo.org/lscsoft/gstlal/
+  doc_url: https://lscsoft.docs.ligo.org/gstlal/
+  license: GPL-2.0-or-later
+  license_family: GPL
+  license_file: COPYING
+  summary: GStreamer for GW data analysis (inspiral parts)
   description: |
     This package provides a variety of gstreamer elements for
     gravitational-wave data analysis and some libraries to help write such
