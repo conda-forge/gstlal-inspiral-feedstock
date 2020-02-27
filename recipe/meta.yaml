@@ -47,7 +47,7 @@ requirements:
     - gstlal >=1.6.0
     - gstlal-ugly >=1.7.0
     - h5py
-    - lal >=6.19.2
+    - lal >=6.19.0
     - lalinspiral >=1.8.0
     - lalapps
     - ligo-gracedb >=1.11
