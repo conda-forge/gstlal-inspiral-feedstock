@@ -1,5 +1,5 @@
 {% set name = "gstlal-inspiral" %}
-{% set version = "1.7.2" %}
+{% set version = "1.7.3" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: http://software.ligo.org/lscsoft/source/{{ name }}-{{ version }}.tar.gz
-  sha256: db4992d9e1b487ee29e31a103b08040e3b8224b8a7e8d51b36d79cd3da345a78
+  sha256: eff094c2e4d0410720f1db53e757ee9eff6301029439e43806ae66306ae6dc15
   patches:
     - missing-links.patch
 
