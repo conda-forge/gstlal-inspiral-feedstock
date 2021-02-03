@@ -17,8 +17,7 @@ build:
   ignore_run_exports:
     # not linked, but needed at runtime
     - gst-plugins-base
-    # configure asks for it, but it is never actually used
-    - lalmetaio
+    - gobject-introspection
   number: 0
   skip: true  # [win or py>=37]
 
@@ -46,9 +45,10 @@ requirements:
     - gstlal >=1.8.0
     - gstlal-ugly >=1.9.0
     - h5py
+    - lalapps
     - liblal
     - liblalinspiral
-    - lalapps
+    - liblalmetaio
     - ligo-gracedb >=1.11
     - ligo-segments >=1.2.0
     - ligo-scald >=0.7.2

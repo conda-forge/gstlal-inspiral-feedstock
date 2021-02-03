@@ -8,7 +8,7 @@ pushd _build
 # only link libraries we actually use
 export GSL_LIBS="-L${PREFIX}/lib -lgsl"
 export GSTLAL_LIBS="-L${PREFIX}/lib -lgstlal -lgstlaltags -lgstlaltypes"
-export LAL_LIBS="-L${PREFIX}/lib -llal -llalinspiral"
+export LAL_LIBS="-L${PREFIX}/lib -llal -llalmetaio -llalinspiral"
 
 # configure
 ${SRC_DIR}/configure \
