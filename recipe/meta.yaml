@@ -1,13 +1,13 @@
 {% set name = "gstlal-inspiral" %}
-{% set version = "1.7.3" %}
+{% set version = "1.9.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: http://software.ligo.org/lscsoft/source/{{ name }}-{{ version }}.tar.gz
-  sha256: eff094c2e4d0410720f1db53e757ee9eff6301029439e43806ae66306ae6dc15
+  url: https://software.igwn.org/sources/source/{{ name }}-{{ version }}.tar.gz
+  sha256: 3f976421655ab7b12cb1344ac00e6dba6f0798bbc87344cd50c1cceeeab64f19
   patches:
     - missing-links.patch
 
@@ -20,7 +20,7 @@ build:
     # configure asks for it, but it is never actually used
     - lalmetaio
   number: 0
-  skip: true  # [win or py>=30]
+  skip: true  # [win or py>=37]
 
 requirements:
   build:
@@ -32,23 +32,22 @@ requirements:
     - gobject-introspection >=1.30.0
     - gsl
     - gstreamer
-    - gstlal >=1.6.0
-    - lal >=6.19.0
-    - lalinspiral >=1.8.0
-    - lalmetaio >=1.4.0
+    - gstlal >=1.8.0
+    - liblal >=7.1.0
+    - liblalinspiral >=2.0.0
+    - liblalmetaio >=2.0.0
     - numpy
     - python
   run:
-    - glib
     - gobject-introspection >=1.30.0
     - gsl
     - gstreamer
     - gst-plugins-base
-    - gstlal >=1.6.0
-    - gstlal-ugly >=1.7.0
+    - gstlal >=1.8.0
+    - gstlal-ugly >=1.9.0
     - h5py
-    - lal >=6.19.0
-    - lalinspiral >=1.8.0
+    - liblal
+    - liblalinspiral
     - lalapps
     - ligo-gracedb >=1.11
     - ligo-segments >=1.2.0
@@ -58,7 +57,7 @@ requirements:
     - python
     - python-lal >=6.19.0
     - python-lalinspiral >=1.8.0
-    - python-ligo-lw >=1.5.3
+    - python-ligo-lw >=1.6.0
     - scipy
 
 test:
