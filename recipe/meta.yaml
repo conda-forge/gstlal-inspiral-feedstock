@@ -18,6 +18,7 @@ build:
   ignore_run_exports:
     # needed by configure, but not used
     - liblalmetaio
+    - liblalinspiral
     # not linked, but needed at runtime
     - gst-plugins-base
     - gobject-introspection
