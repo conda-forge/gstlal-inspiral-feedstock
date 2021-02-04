@@ -9,7 +9,8 @@ source:
   url: https://software.igwn.org/sources/source/{{ name }}-{{ version }}.tar.gz
   sha256: 3f976421655ab7b12cb1344ac00e6dba6f0798bbc87344cd50c1cceeeab64f19
   patches:
-    - missing-links.patch
+    - link-gsl.patch
+    - no-link-libpython.patch  # [osx]
 
 build:
   error_overdepending: true
