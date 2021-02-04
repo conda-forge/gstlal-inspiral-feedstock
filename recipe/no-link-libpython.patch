@@ -1,5 +1,24 @@
+--- configure	2021-01-28 21:00:35.000000000 +0000
++++ configure	2021-02-04 01:42:19.300000000 +0000
+@@ -17039,16 +17039,6 @@
+
+
+ #
+-# LDFLAGS
+-#
+-
+-
+-# Turn on error messages for undefined symbols
+-AM_LDFLAGS="$AM_LDFLAGS -no-undefined"
+-
+-
+-
+-#
+ # Check for math library
+ #
+
 --- python/Makefile.in	2021-01-28 21:00:34.000000000 +0000
-+++ python/Makefile.in.2	2021-02-04 10:06:36.000000000 +0000
++++ python/Makefile.in	2021-02-04 10:06:36.000000000 +0000
 @@ -504,16 +504,16 @@
  _rate_estimation_la_SOURCES = rate_estimation.c
  _rate_estimation_la_CPPFLAGS = $(AM_CPPFLAGS) $(PYTHON_CPPFLAGS) -DMODULE_NAME="\"gstlal._rate_estimation\""
