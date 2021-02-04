@@ -16,6 +16,8 @@ build:
   error_overdepending: true
   error_overlinking: true
   ignore_run_exports:
+    # needed by configure, but not used
+    - liblalmetaio
     # not linked, but needed at runtime
     - gst-plugins-base
     - gobject-introspection
