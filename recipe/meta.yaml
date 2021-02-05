@@ -11,6 +11,8 @@ source:
   patches:
     - link-gsl.patch
     - no-link-libpython.patch  # [osx]
+    # https://git.ligo.org/lscsoft/gstlal/-/merge_requests/28
+    - setrlimit-linux-only.patch
 
 build:
   error_overdepending: true
