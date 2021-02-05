@@ -1,0 +1,41 @@
+--- configure	2021-01-28 21:00:35.000000000 +0000
++++ configure	2021-02-04 01:42:19.300000000 +0000
+@@ -17039,16 +17039,6 @@
+
+
+ #
+-# LDFLAGS
+-#
+-
+-
+-# Turn on error messages for undefined symbols
+-AM_LDFLAGS="$AM_LDFLAGS -no-undefined"
+-
+-
+-
+-#
+ # Check for math library
+ #
+
+--- python/Makefile.in	2021-01-28 21:00:34.000000000 +0000
++++ python/Makefile.in	2021-02-04 10:06:36.000000000 +0000
+@@ -504,16 +504,16 @@
+ _rate_estimation_la_SOURCES = rate_estimation.c
+ _rate_estimation_la_CPPFLAGS = $(AM_CPPFLAGS) $(PYTHON_CPPFLAGS) -DMODULE_NAME="\"gstlal._rate_estimation\""
+ _rate_estimation_la_CFLAGS = $(AM_CFLAGS) $(GSL_CFLAGS) -fno-strict-aliasing -DMODULE_NAME="\"gstlal._rate_estimation\""
+-_rate_estimation_la_LDFLAGS = $(AM_LDFLAGS) $(GSL_LIBS) $(PYTHON_LIBS) -module -avoid-version
++_rate_estimation_la_LDFLAGS = $(AM_LDFLAGS) $(GSL_LIBS) -undefined dynamic_lookup -module -avoid-version
+ _snglinspiraltable_la_SOURCES = snglinspiraltable.c
+ _snglinspiraltable_la_CPPFLAGS = $(AM_CPPFLAGS) $(PYTHON_CPPFLAGS) -DMODULE_NAME="\"gstlal._snglinspiraltable\""
+ _snglinspiraltable_la_CFLAGS = $(AM_CFLAGS) $(LAL_CFLAGS) $(GSL_CFLAGS) $(gstreamer_CFLAGS) -fno-strict-aliasing -DMODULE_NAME="\"gstlal._snglinspiraltable\""
+ _snglinspiraltable_la_LIBADD = $(top_builddir)/lib/libgstlalinspiral.la
+-_snglinspiraltable_la_LDFLAGS = $(AM_LDFLAGS) $(LAL_LIBS) $(GSL_LIBS) $(PYTHON_LIBS) -module -avoid-version
++_snglinspiraltable_la_LDFLAGS = $(AM_LDFLAGS) $(LAL_LIBS) $(GSL_LIBS) -undefined dynamic_lookup -module -avoid-version
+ _spawaveform_la_SOURCES = _spawaveform.c
+ _spawaveform_la_CPPFLAGS = $(AM_CPPFLAGS) $(PYTHON_CPPFLAGS) -DMODULE_NAME="\"gstlal._spawaveform\""
+ _spawaveform_la_CFLAGS = $(AM_CFLAGS) $(LAL_CFLAGS) $(GSL_CFLAGS) -fno-strict-aliasing -DMODULE_NAME="\"gstlal._spawaveform\""
+-_spawaveform_la_LDFLAGS = $(AM_LDFLAGS) $(LAL_LIBS) $(GSL_LIBS) $(PYTHON_LIBS) -module -avoid-version
++_spawaveform_la_LDFLAGS = $(AM_LDFLAGS) $(LAL_LIBS) $(GSL_LIBS) -undefined dynamic_lookup -module -avoid-version
+ all: all-recursive
+ 
+ .SUFFIXES:

@@ -5,13 +5,14 @@ set -ex
 mkdir -p _build
 pushd _build
 
-# conda-forge/conda-forge.github.io#621
-#find ${PREFIX} -name "*.la" -delete
-
 # only link libraries we actually use
 export GSL_LIBS="-L${PREFIX}/lib -lgsl"
 export GSTLAL_LIBS="-L${PREFIX}/lib -lgstlal -lgstlaltags -lgstlaltypes"
-export LAL_LIBS="-L${PREFIX}/lib -llal -llalinspiral"
+export LAL_LIBS="-L${PREFIX}/lib -llal"
+
+# replace '/usr/bin/env python3' with '/usr/bin/python'
+# so that conda-build will then replace it with the $PREFIX/bin
+sed -i.tmp 's/\/usr\/bin\/env python3/\/usr\/bin\/python/g' ${SRC_DIR}/bin/gstlal_*
 
 # configure
 ${SRC_DIR}/configure \
@@ -25,7 +26,6 @@ ${SRC_DIR}/configure \
 ;
 
 # build
-export CPU_COUNT="1"
 make -j ${CPU_COUNT} V=1 VERBOSE=1
 
 # install

@@ -1,0 +1,43 @@
+From 4cb786f731aba90e1415aeb64dfaf7c0d28bd467 Mon Sep 17 00:00:00 2001
+From: Duncan Macleod <duncan.macleod@ligo.org>
+Date: Fri, 5 Feb 2021 00:36:17 +0000
+Subject: [PATCH 2/3] gstlal-inspiral: only call setrlimit on linux
+
+it causes errors on macos with python3
+---
+ gstlal-inspiral/bin/gstlal_inspiral | 19 ++++++++++---------
+ 1 file changed, 10 insertions(+), 9 deletions(-)
+
+diff --git a/gstlal-inspiral/bin/gstlal_inspiral b/gstlal-inspiral/bin/gstlal_inspiral
+index 448353bf2..2b6509cbb 100755
+--- a/gstlal-inspiral/bin/gstlal_inspiral
++++ b/gstlal-inspiral/bin/gstlal_inspiral
+@@ -199,15 +199,16 @@ def setrlimit(res, lim):
+ 	hard_lim = resource.getrlimit(res)[1]
+ 	resource.setrlimit(res, (lim if lim is not None else hard_lim, hard_lim))
+ 
+-# set the number of processes and total set size up to hard limit and
+-# shrink the per-thread stack size (default is 10 MiB)
+-setrlimit(resource.RLIMIT_NPROC, None)
+-setrlimit(resource.RLIMIT_AS, None)
+-setrlimit(resource.RLIMIT_RSS, None)
+-# FIXME:  tests at CIT show that this next tweak has no effect.  it's
+-# possible that SL7 has lowered the default stack size from SL6 and we
+-# don't need to do this anymore.  remove?
+-setrlimit(resource.RLIMIT_STACK, 1024 * 1024) # 1 MiB per thread
++if sys.platform == "linux":
++	# set the number of processes and total set size up to hard limit and
++	# shrink the per-thread stack size (default is 10 MiB)
++	setrlimit(resource.RLIMIT_NPROC, None)
++	setrlimit(resource.RLIMIT_AS, None)
++	setrlimit(resource.RLIMIT_RSS, None)
++	# FIXME:	tests at CIT show that this next tweak has no effect.	it's
++	# possible that SL7 has lowered the default stack size from SL6 and we
++	# don't need to do this anymore.	remove?
++	setrlimit(resource.RLIMIT_STACK, 1024 * 1024) # 1 MiB per thread
+ 
+ 
+ def service_domain(gracedb_search, gracedb_pipeline):
+-- 
+2.20.1
+
