@@ -1,5 +1,5 @@
 {% set name = "gstlal-inspiral" %}
-{% set version = "1.9.0" %}
+{% set version = "1.9.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://software.igwn.org/sources/source/{{ name }}-{{ version }}.tar.gz
-  sha256: 3f976421655ab7b12cb1344ac00e6dba6f0798bbc87344cd50c1cceeeab64f19
+  sha256: 540e39d496e9aa5aad56137f800b96083db7817f0ea137bc32da69353a35a7a3
   patches:
     - link-gsl.patch
     - no-link-libpython.patch  # [osx]
