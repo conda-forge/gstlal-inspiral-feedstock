@@ -71,6 +71,7 @@ requirements:
     - ligo-scald >={{ ligo_scald_version }}
     - lscsoft-glue >={{ lscsoft_glue_version }}
     - {{ pin_compatible('numpy') }}
+    - pandas >=0.17.1
     - python
     - python-lal >={{ lal_version }}
     - python-lalinspiral >={{ lalinspiral_version }}
