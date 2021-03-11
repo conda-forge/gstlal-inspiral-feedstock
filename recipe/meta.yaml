@@ -1,6 +1,19 @@
 {% set name = "gstlal-inspiral" %}
 {% set version = "1.9.1" %}
 
+# dependencies
+{% set lscsoft_glue_version = "2.0.0" %}
+{% set gobject_introspection_version = "1.30.0" %}
+{% set gstlal_version = "1.9.0" %}
+{% set gstlal_ugly_version = "1.9.1" %}
+{% set lal_version = "7.1.0" %}
+{% set lalinspiral_version = "2.0.0" %}
+{% set lalmetaio_version = "2.0.0" %}
+{% set ligo_gracedb_version = "2.7.5" %}
+{% set ligo_scald_version = "0.7.2" %}
+{% set ligo_segments_version = "1.2.0" %}
+{% set python_ligo_lw_version = "1.7.0" %}
+
 package:
   name: {{ name|lower }}
   version: {{ version }}
@@ -11,8 +24,6 @@ source:
   patches:
     - link-gsl.patch
     - no-link-libpython.patch  # [osx]
-    # https://git.ligo.org/lscsoft/gstlal/-/merge_requests/28
-    - setrlimit-linux-only.patch
 
 build:
   error_overdepending: true
@@ -25,7 +36,7 @@ build:
     - gst-plugins-base
     - gobject-introspection
   number: 0
-  skip: true  # [win or py>=37]
+  skip: true  # [win]
 
 requirements:
   build:
@@ -34,36 +45,36 @@ requirements:
     - pkg-config >=0.18.0  # [unix]
   host:
     - glib
-    - gobject-introspection >=1.30.0
+    - gobject-introspection >={{ gobject_introspection_version }}
     - gsl
     - gstreamer
-    - gstlal >=1.8.0
-    - liblal >=7.1.0
-    - liblalinspiral >=2.0.0
-    - liblalmetaio >=2.0.0
+    - gstlal >={{ gstlal_version }}
+    - liblal >={{ lal_version }}
+    - liblalinspiral >={{ lalinspiral_version }}
+    - liblalmetaio >={{ lalmetaio_version }}
     - numpy
     - python
   run:
-    - gobject-introspection >=1.30.0
+    - gobject-introspection >={{ gobject_introspection_version }}
     - gsl
     - gstreamer
     - gst-plugins-base
-    - gstlal >=1.8.0
-    - gstlal-ugly >=1.9.0
+    - gstlal >={{ gstlal_version }}
+    - gstlal-ugly >={{ gstlal_ugly_version }}
     - h5py <3.0.0a0
     - lalapps
-    - liblal
-    - liblalinspiral
-    - liblalmetaio
-    - ligo-gracedb >=1.11
-    - ligo-segments >=1.2.0
-    - ligo-scald >=0.7.2
-    - lscsoft-glue >=2.0.0
+    - liblal >={{ lal_version }}
+    - liblalinspiral >={{ lalinspiral_version }}
+    - liblalmetaio >={{ lalmetaio_version }}
+    - ligo-gracedb >={{ ligo_gracedb_version }}
+    - ligo-segments >={{ ligo_segments_version }}
+    - ligo-scald >={{ ligo_scald_version }}
+    - lscsoft-glue >={{ lscsoft_glue_version }}
     - {{ pin_compatible('numpy') }}
     - python
-    - python-lal >=6.19.0
-    - python-lalinspiral >=1.8.0
-    - python-ligo-lw >=1.6.0
+    - python-lal >={{ lal_version }}
+    - python-lalinspiral >={{ lalinspiral_version }}
+    - python-ligo-lw >={{ python_ligo_lw_version }}
     - scipy
 
 test:
