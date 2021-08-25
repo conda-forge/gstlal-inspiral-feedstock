@@ -35,7 +35,7 @@ build:
     # not linked, but needed at runtime
     - gst-plugins-base
     - gobject-introspection
-  number: 0
+  number: 1
   skip: true  # [win]
 
 requirements:
