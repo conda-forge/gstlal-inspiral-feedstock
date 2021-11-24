@@ -61,7 +61,7 @@ requirements:
     - gst-plugins-base
     - gstlal >={{ gstlal_version }}
     - gstlal-ugly >={{ gstlal_ugly_version }}
-    - h5py <3.0.0a0
+    - h5py
     - lalapps
     - liblal >={{ lal_version }}
     - liblalinspiral >={{ lalinspiral_version }}
