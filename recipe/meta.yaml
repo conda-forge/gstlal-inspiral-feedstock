@@ -35,7 +35,7 @@ build:
     # not linked, but needed at runtime
     - gst-plugins-base
     - gobject-introspection
-  number: 0
+  number: 1
   skip: true  # [win]
 
 requirements:
@@ -75,7 +75,7 @@ requirements:
     - python
     - python-lal >={{ lal_version }}
     - python-lalinspiral >={{ lalinspiral_version }}
-    - python-ligo-lw >={{ python_ligo_lw_version }}
+    - python-ligo-lw >={{ python_ligo_lw_version }},<1.8.0a0
     - scipy
 
 test:
