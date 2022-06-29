@@ -12,7 +12,7 @@
 {% set ligo_gracedb_version = "2.7.5" %}
 {% set ligo_scald_version = "0.7.2" %}
 {% set ligo_segments_version = "1.2.0" %}
-{% set python_ligo_lw_version = "1.7.0" %}
+{% set python_ligo_lw_version = "1.8.0" %}
 
 package:
   name: {{ name|lower }}
@@ -36,7 +36,7 @@ build:
     - gst-plugins-base
     - gobject-introspection
     - numpy
-  number: 0
+  number: 1
   skip: true  # [win]
 
 requirements:
@@ -115,5 +115,6 @@ about:
 
 extra:
   recipe-maintainers:
+    - aepace
     - duncanmmacleod
     - myNameIsPatrick
