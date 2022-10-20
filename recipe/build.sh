@@ -14,6 +14,9 @@ export LAL_LIBS="-L${PREFIX}/lib -llal"
 # so that conda-build will then replace it with the $PREFIX/bin
 sed -i.tmp 's/\/usr\/bin\/env python3/\/usr\/bin\/python/g' ${SRC_DIR}/bin/gstlal_*
 
+# ignore deprecation warning from distutils, it breaks ac_python_devel.m4
+export PYTHONWARNINGS="${PYTHONWARNINGS},ignore:The distutils package:DeprecationWarning"
+
 # configure
 ${SRC_DIR}/configure \
   --disable-massmodel \
