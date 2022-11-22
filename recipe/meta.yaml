@@ -1,16 +1,15 @@
 {% set name = "gstlal-inspiral" %}
-{% set version = "1.9.3" %}
+{% set version = "1.10.0" %}
 
 # dependencies
-{% set lscsoft_glue_version = "2.0.0" %}
 {% set gobject_introspection_version = "1.30.0" %}
-{% set gstlal_version = "1.9.0" %}
-{% set gstlal_ugly_version = "1.9.1" %}
-{% set lal_version = "7.1.0" %}
-{% set lalinspiral_version = "2.0.0" %}
-{% set lalmetaio_version = "2.0.0" %}
+{% set gstlal_version = "1.10.0" %}
+{% set gstlal_ugly_version = "1.10.0" %}
+{% set lal_version = "7.2.4" %}
+{% set lalinspiral_version = "3.0.2" %}
+{% set lalmetaio_version = "3.0.2" %}
 {% set ligo_gracedb_version = "2.7.5" %}
-{% set ligo_scald_version = "0.7.2" %}
+{% set ligo_scald_version = "0.8.1" %}
 {% set ligo_segments_version = "1.2.0" %}
 {% set python_ligo_lw_version = "1.8.0" %}
 
@@ -20,7 +19,7 @@ package:
 
 source:
   url: https://software.igwn.org/sources/source/{{ name }}-{{ version }}.tar.gz
-  sha256: 6aac723769d15d388f86226d30d108feead3f299d5378286f98d5791479c6931
+  sha256: b025edc9b0c1179d1e9bb4b816a784b21090b2cbabd3c31d33cc0c01f1d6c0d0
   patches:
     - link-gsl.patch
     - no-link-libpython.patch  # [osx]
@@ -36,7 +35,7 @@ build:
     - gst-plugins-base
     - gobject-introspection
     - numpy
-  number: 3
+  number: 0
   skip: true  # [win]
 
 requirements:
@@ -63,14 +62,12 @@ requirements:
     - gstlal >={{ gstlal_version }}
     - gstlal-ugly >={{ gstlal_ugly_version }}
     - h5py
-    - lalapps
     - liblal >={{ lal_version }}
     - liblalinspiral >={{ lalinspiral_version }}
     - liblalmetaio >={{ lalmetaio_version }}
     - ligo-gracedb >={{ ligo_gracedb_version }}
     - ligo-segments >={{ ligo_segments_version }}
     - ligo-scald >={{ ligo_scald_version }}
-    - lscsoft-glue >={{ lscsoft_glue_version }}
     - {{ pin_compatible('numpy') }}
     - pandas >=0.17.1
     - python
@@ -89,12 +86,11 @@ test:
     - export TMPDIR=$(python -c "import tempfile; print(tempfile.gettempdir())")
     # these imports need the GSTLAL_FIR_WHITEN variable
     - python -c "import gstlal.inspiral"
-    - python -c "import gstlal.inspiral_pipe"
     # check executables
     - gstlal_inspiral --help
-    - gstlal_inspiral_pipe --help
-    - gstlal_ll_inspiral_pipe --help
-    - gstlal_svd_bank --help
+    - gstlal_inspiral_workflow --help
+    - gstlal_inspiral_svd_bank --help
+    - gstlal_ll_inspiral_workflow --help
 
 about:
   home: https://lscsoft.docs.ligo.org/gstlal/
