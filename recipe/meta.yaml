@@ -3,8 +3,8 @@
 
 # dependencies
 {% set gobject_introspection_version = "1.30.0" %}
-{% set gstlal_version = "1.9.0" %}
-{% set gstlal_ugly_version = "1.9.1" %}
+{% set gstlal_version = "1.10.0" %}
+{% set gstlal_ugly_version = "1.10.0" %}
 {% set lal_version = "7.2.4" %}
 {% set lalinspiral_version = "3.0.2" %}
 {% set lalmetaio_version = "3.0.2" %}
