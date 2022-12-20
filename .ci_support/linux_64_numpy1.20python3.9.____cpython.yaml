@@ -1,7 +1,7 @@
 c_compiler:
 - gcc
 c_compiler_version:
-- '10'
+- '11'
 cdt_name:
 - cos6
 channel_sources:
@@ -15,9 +15,9 @@ glib:
 gsl:
 - '2.7'
 gst_plugins_base:
-- '1.20'
+- '1.21'
 gstreamer:
-- '1.20'
+- '1.21'
 numpy:
 - '1.20'
 pin_run_as_build:
