@@ -15,9 +15,9 @@ glib:
 gsl:
 - '2.7'
 gst_plugins_base:
-- '1.21'
+- '1.22'
 gstreamer:
-- '1.21'
+- '1.22'
 numpy:
 - '1.21'
 pin_run_as_build:
