@@ -13,9 +13,9 @@ glib:
 gsl:
 - '2.7'
 gst_plugins_base:
-- '1.21'
+- '1.22'
 gstreamer:
-- '1.21'
+- '1.22'
 macos_machine:
 - x86_64-apple-darwin13.4.0
 numpy:
