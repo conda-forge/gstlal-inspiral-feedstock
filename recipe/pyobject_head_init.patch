@@ -1,0 +1,39 @@
+From 8627ede8e6871279689793482dff91442610d385 Mon Sep 17 00:00:00 2001
+From: Duncan Macleod <macleoddm@cardiff.ac.uk>
+Date: Tue, 30 Jul 2024 10:31:39 +0100
+Subject: [PATCH] gstlal-inspiral: fix compilation on macOS with Python 3.12
+
+---
+ gstlal-inspiral/python/rate_estimation.c   | 2 +-
+ gstlal-inspiral/python/snglinspiraltable.c | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/gstlal-inspiral/python/rate_estimation.c b/gstlal-inspiral/python/rate_estimation.c
+index 47d0dc600..0aa9cce79 100644
+--- a/gstlal-inspiral/python/rate_estimation.c
++++ b/gstlal-inspiral/python/rate_estimation.c
+@@ -305,7 +305,7 @@ static PyObject *__call__(PyObject *self, PyObject *args, PyObject *kw)
+ 
+ 
+ static PyTypeObject LogPosterior_Type = {
+-	PyObject_HEAD_INIT(NULL)
++	PyVarObject_HEAD_INIT(NULL, 0)
+ 	.tp_basicsize = sizeof(struct LogPosterior),
+ 	.tp_call = __call__,
+ 	.tp_dealloc = __del__,
+diff --git a/gstlal-inspiral/python/snglinspiraltable.c b/gstlal-inspiral/python/snglinspiraltable.c
+index b5fa12b34..67c4e10d7 100644
+--- a/gstlal-inspiral/python/snglinspiraltable.c
++++ b/gstlal-inspiral/python/snglinspiraltable.c
+@@ -848,7 +848,7 @@ static PyObject *richcompare(PyObject *self, PyObject *other, int op_id)
+ 
+ 
+ static PyTypeObject gstlal_GSTLALSnglInspiral_Type = {
+-	PyObject_HEAD_INIT(NULL)
++	PyVarObject_HEAD_INIT(NULL, 0)
+ 	.tp_basicsize = sizeof(gstlal_GSTLALSnglInspiral),
+ 	.tp_doc = "GstLAL's GSTLALSnglInspiral type",
+ 	.tp_flags = Py_TPFLAGS_DEFAULT | Py_TPFLAGS_BASETYPE,
+-- 
+2.39.2
+
