@@ -21,6 +21,7 @@ source:
   url: https://software.igwn.org/sources/source/{{ name }}-{{ version }}.tar.gz
   sha256: c5e1b167bfb118ae2fcc0355108997ad4425774292a7d33a727a1b8ebe55d338
   patches:
+    - py-compile-imp.patch
     - link-gsl.patch
     - no-link-libpython.patch  # [osx]
 
