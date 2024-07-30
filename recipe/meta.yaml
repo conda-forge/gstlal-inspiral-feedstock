@@ -23,6 +23,7 @@ source:
   patches:
     - py-compile-imp.patch
     - pyobject_head_init.patch
+    - complex-I.patch
     - link-gsl.patch
     - no-link-libpython.patch  # [osx]
 

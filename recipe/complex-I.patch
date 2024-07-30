@@ -1,0 +1,15 @@
+diff --git a/gstlal-inspiral/python/_spawaveform.c b/gstlal-inspiral/python/_spawaveform.c
+index e0ab4879f..41f888f51 100644
+--- a/gstlal-inspiral/python/_spawaveform.c
++++ b/gstlal-inspiral/python/_spawaveform.c
+@@ -24,6 +24,10 @@
+ 
+ #include <numpy/arrayobject.h>
+ 
++/* re-add I after numpy removed it */
++#ifndef I
++#define I _Complex_I
++#endif
+ 
+ /* static functions used by the python wrappers */
+ static int SPAWaveform (double mass1, double mass2, int order, double deltaF, double deltaT, double fLower, double fFinal, int numPoints, complex double *expPsi);
