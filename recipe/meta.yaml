@@ -23,6 +23,7 @@ source:
   patches:
     - py-compile-imp.patch
     - pyobject_head_init.patch
+    - complex-I.patch
     - link-gsl.patch
     - no-link-libpython.patch  # [osx]
 
@@ -37,7 +38,7 @@ build:
     - gst-plugins-base
     - gobject-introspection
     - numpy
-  number: 2
+  number: 3
   skip: true  # [win]
 
 requirements:
@@ -71,7 +72,6 @@ requirements:
     - ligo-gracedb >={{ ligo_gracedb_version }}
     - ligo-segments >={{ ligo_segments_version }}
     - ligo-scald >={{ ligo_scald_version }}
-    - {{ pin_compatible('numpy') }}
     - pandas >=0.17.1
     - python
     - python-lal >={{ lal_version }}
