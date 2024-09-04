@@ -27,7 +27,6 @@ source:
     - no-link-libpython.patch  # [osx]
 
 build:
-  error_overdepending: true
   error_overlinking: true
   ignore_run_exports:
     # needed by configure, but not used
@@ -36,7 +35,8 @@ build:
     # not linked, but needed at runtime
     - gst-plugins-base
     - gobject-introspection
-    - numpy
+  ignore_run_exports_from:
+    - {{ compiler('c') }}
   number: 3
   skip: true  # [win]
 
