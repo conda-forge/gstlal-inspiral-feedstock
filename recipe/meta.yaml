@@ -37,7 +37,7 @@ build:
     - gst-plugins-base
     - gobject-introspection
     - numpy
-  number: 2
+  number: 3
   skip: true  # [win]
 
 requirements:
