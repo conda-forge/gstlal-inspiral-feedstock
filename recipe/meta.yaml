@@ -38,7 +38,8 @@ build:
   ignore_run_exports_from:
     - {{ compiler('c') }}
   number: 3
-  skip: true  # [win]
+  # lalinspiral is not available for Python 3.9
+  skip: true  # [win or py<310]
 
 requirements:
   build:
