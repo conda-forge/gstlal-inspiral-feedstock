@@ -27,7 +27,6 @@ source:
     - no-link-libpython.patch  # [osx]
 
 build:
-  error_overdepending: true
   error_overlinking: true
   ignore_run_exports:
     # needed by configure, but not used
@@ -36,9 +35,11 @@ build:
     # not linked, but needed at runtime
     - gst-plugins-base
     - gobject-introspection
-    - numpy
-  number: 2
-  skip: true  # [win]
+  ignore_run_exports_from:
+    - {{ compiler('c') }}
+  number: 3
+  # lalinspiral is not available for Python 3.9
+  skip: true  # [win or py<310]
 
 requirements:
   build:
