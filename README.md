@@ -253,5 +253,5 @@ Feedstock Maintainers
 
 * [@aepace](https://github.com/aepace/)
 * [@duncanmmacleod](https://github.com/duncanmmacleod/)
-* [@myNameIsPatrick](https://github.com/myNameIsPatrick/)
+* [@nothisisolivia](https://github.com/nothisisolivia/)
 
