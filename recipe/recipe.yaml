@@ -53,6 +53,7 @@ requirements:
     - liblalmetaio >=${{ lalmetaio_version }}
     - numpy 1.*
     - python
+    - zlib
   run:
     - gobject-introspection >=${{ gobject_introspection_version }}
     - gsl
@@ -80,6 +81,7 @@ requirements:
       - liblalinspiral
       - gst-plugins-base
       - gobject-introspection
+      - libzlib
     from_package:
       - ${{ compiler('c') }}
 
