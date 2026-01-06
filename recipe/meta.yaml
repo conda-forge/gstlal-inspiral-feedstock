@@ -37,7 +37,7 @@ build:
     - gobject-introspection
   ignore_run_exports_from:
     - {{ compiler('c') }}
-  number: 3
+  number: 4
   # lalinspiral is not available for Python 3.9
   skip: true  # [win or py<310]
 
