@@ -21,7 +21,6 @@ and, of course, GStreamer.
 This package contains plugins, libraries, and programs for inspiral data
 analysis.
 
-
 Current build status
 ====================
 

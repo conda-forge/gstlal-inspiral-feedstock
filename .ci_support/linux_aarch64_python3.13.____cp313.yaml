@@ -16,8 +16,6 @@ glib:
 - '2'
 gsl:
 - '2.7'
-gst_plugins_base:
-- '1.26'
 gstreamer:
 - '1.26'
 numpy:
