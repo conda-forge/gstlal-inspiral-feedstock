@@ -10,9 +10,9 @@ export GSL_LIBS="-L${PREFIX}/lib -lgsl"
 export GSTLAL_LIBS="-L${PREFIX}/lib -lgstlal -lgstlaltags -lgstlaltypes"
 export LAL_LIBS="-L${PREFIX}/lib -llal"
 
-# replace '/usr/bin/env python3' with '/usr/bin/python'
-# so that conda-build will then replace it with the $PREFIX/bin
-sed -i.tmp 's/\/usr\/bin\/env python3/\/usr\/bin\/python/g' ${SRC_DIR}/bin/gstlal_*
+# replace '/usr/bin/env python{3}' with $PYTHON so that the builder
+# invokes prefix replacement correctly
+sed -i.tmp -E "s|/usr/bin/env python(3)?|${PYTHON}|g" ${SRC_DIR}/bin/gstlal_*
 
 # ignore deprecation warning from distutils, it breaks ac_python_devel.m4
 export PYTHONWARNINGS="${PYTHONWARNINGS},ignore:The distutils package:DeprecationWarning"
