@@ -51,7 +51,7 @@ requirements:
     - liblal >=${{ lal_version }}
     - liblalinspiral >=${{ lalinspiral_version }}
     - liblalmetaio >=${{ lalmetaio_version }}
-    - numpy
+    - numpy 1.*
     - python
   run:
     - gobject-introspection >=${{ gobject_introspection_version }}
