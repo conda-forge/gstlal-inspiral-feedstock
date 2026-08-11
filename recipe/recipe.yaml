@@ -30,7 +30,7 @@ source:
       then: no-link-libpython.patch
 
 build:
-  number: 4
+  number: 5
   skip:
     - win
     # gstlal not built for Python 3.13
